@@ -1,0 +1,190 @@
+table 'classicmodels orderdetails'
+	lineageTag: 199859c1-77d2-48e4-b9ae-2e0a6dca93cc
+
+	measure 'Sum of quantityOrdered x Sum of buyPrice/' =
+			
+			SUM('classicmodels orderdetails'[quantityOrdered]) * SUM('classicmodels products'[buyPrice])
+		formatString: 0
+		lineageTag: 64e54c36-e727-4dbf-beb2-c21056ec5c93
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalMultiplication"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Sum of quantityOrdered x buyPrice/average quantity of stock' =
+			
+			SUM('classicmodels orderdetails'[quantityOrdered]) * SUM('classicmodels products'[buyPrice])
+		formatString: 0
+		lineageTag: 1274ded1-516e-437d-ac7e-12c4934090f8
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalMultiplication"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Sum of quantityOrdered for 2013, 2014, 2015, 2016, or 2017' =
+			
+			CALCULATE(
+				SUM('classicmodels orderdetails'[quantityOrdered]),
+				'Table'[Order Year]
+					IN { "2013", "2014", "2015", "2016", "2017" }
+			)
+		formatString: 0
+		lineageTag: ed08cae5-cf1a-478c-9b27-4e11a78631fc
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "FilteredMeasure"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Sum of quantityOrdered for 2013, 2014, 2015, 2016, or 2017 2' =
+			
+			CALCULATE(
+				SUM('classicmodels orderdetails'[quantityOrdered]),
+				'Table'[Order Year]
+					IN { "2013", "2014", "2015", "2016", "2017" }
+			)
+		formatString: 0
+		lineageTag: 77e3a13c-598b-43d9-9012-6366042af960
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "FilteredMeasure"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Sum of quantityOrdered for 2013, 2014, 2015, 2016, or 2017 3' =
+			
+			CALCULATE(
+				SUM('classicmodels orderdetails'[quantityOrdered]),
+				'Table'[Order Year]
+					IN { "2013", "2014", "2015", "2016", "2017" }
+			)
+		formatString: 0
+		lineageTag: c98145e9-c51b-43cc-b869-159ca685e190
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "FilteredMeasure"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Sum of quantityOrdered for 2013, 2014, 2015, 2016, or 2017 4' =
+			
+			CALCULATE(
+				SUM('classicmodels orderdetails'[quantityOrdered]),
+				'Table'[Order Year]
+					IN { "2013", "2014", "2015", "2016", "2017" }
+			)
+		formatString: 0
+		lineageTag: 1cb5ada3-1685-4920-baf1-cb6f48640312
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "FilteredMeasure"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Sum of quantityOrdered for 2013' =
+			
+			CALCULATE(
+				SUM('classicmodels orderdetails'[quantityOrdered]),
+				'Table'[Order Year] IN { "2013" }
+			)
+		formatString: 0
+		lineageTag: 9dc59728-c852-45d5-b262-7b1d87d87512
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "FilteredMeasure"
+				}
+
+		changedProperty = FormatString
+
+	column orderNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 9646f433-a37c-446c-bd2b-f97c193f5c93
+		summarizeBy: none
+		sourceColumn: orderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column productCode
+		dataType: string
+		lineageTag: 69f27b98-754d-49a3-802a-be2453b3e739
+		summarizeBy: none
+		sourceColumn: productCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantityOrdered
+		dataType: int64
+		formatString: 0
+		lineageTag: 96c92066-0f88-4183-ab12-0e8305b53c9d
+		summarizeBy: sum
+		sourceColumn: quantityOrdered
+
+		annotation SummarizationSetBy = Automatic
+
+	column priceEach
+		dataType: double
+		lineageTag: dcfff398-379b-46cb-b6f8-67116a25209c
+		summarizeBy: sum
+		sourceColumn: priceEach
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column orderLineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b672380f-fd7b-43ce-89ac-3e109c0e8b3f
+		summarizeBy: sum
+		sourceColumn: orderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Price' = 'classicmodels orderdetails'[quantityOrdered]*'classicmodels orderdetails'[priceEach]
+		lineageTag: 9e3958aa-c153-472e-8bbd-1e2c6c1d42cc
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Full Order Number' = (CONCATENATE('classicmodels orderdetails'[orderNumber],'classicmodels orderdetails'[orderLineNumber]))
+		lineageTag: f7608ffa-dd34-4ea0-9a03-cffe1f2f5d82
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'classicmodels orderdetails' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3306", "classicmodels", [ReturnSingleDatabase=true]),
+				    classicmodels_orderdetails = Source{[Schema="classicmodels",Item="orderdetails"]}[Data]
+				in
+				    classicmodels_orderdetails
+
+	annotation PBI_ResultType = Table
+

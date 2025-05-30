@@ -1,0 +1,217 @@
+table Table
+	lineageTag: c848c7b6-d541-405c-8ae7-f7e277f15888
+
+	column ' Shipping Data'
+		lineageTag: 33d19a8e-571e-45be-9a38-7117eeb15e8b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[ Shipping Data]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column2
+		lineageTag: 05b781bc-7003-45c5-b586-8fca68df3b81
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column3
+		lineageTag: c221f59e-a9f8-4f9d-8c15-10f47dcf4232
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column4
+		lineageTag: 361a54c1-f13f-4024-996e-54e046007582
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column5
+		lineageTag: da8b973c-8b82-45bd-86f9-84304809db7b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column5]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column6
+		lineageTag: 20f7e08e-d721-4d10-a5e6-433aaca97df1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column6]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column7
+		lineageTag: ad3a22fe-afe2-42b1-926b-68bd0a787968
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column7]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column8
+		lineageTag: 8448ffa2-7fce-44a1-85e4-f7cb6ffe9431
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column8]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column9
+		lineageTag: 79855525-8d78-4299-9633-4364a0743fb4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column9]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column10
+		lineageTag: 27517182-887d-45ef-beae-f3631ae1971e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column10]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column11
+		lineageTag: 53a041e4-ef3a-4194-9679-17638a5221ff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column11]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column12
+		lineageTag: 4215096d-0b6b-4b2c-92a3-fd5e971ceca9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column12]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column13
+		lineageTag: 38e8f364-5801-4d53-99b4-f05982ac3594
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column13]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column14
+		lineageTag: 55844b61-4b87-4f45-9be0-a6dba514a1eb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column14]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column15
+		lineageTag: 94f2e0a4-cabd-4f53-8be6-97f11f0d493e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column15]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column16
+		lineageTag: bab54877-5519-441a-a216-c58a603076b1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column16]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column17
+		lineageTag: 5379655e-d9fe-400e-968e-57895ae24813
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column17]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column18
+		lineageTag: 12bba9dd-c840-4b7d-9a69-0af964638359
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column18]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column19
+		lineageTag: 6e67a5b9-a42c-4c9d-8ee4-821811101fe3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column19]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column20
+		lineageTag: 9bd6776b-9cfa-4be3-8978-e6c24455497f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column20]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column21
+		lineageTag: 1a719b7b-9109-4585-944e-ab478c1c3d67
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column21]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column22
+		lineageTag: dfae4732-0054-431b-8314-7eaba2826ec4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column22]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column23
+		lineageTag: 265ef74b-bb51-4ee1-9c31-087d6626977b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column23]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column24
+		lineageTag: 9cba3dbe-3cc1-4f3f-bb44-bd3fcf9badfb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column24]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column25
+		lineageTag: 092a0a77-ccf6-4c0a-9f1f-90a9ca237909
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Column25]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Year'
+		lineageTag: 844b17c2-b394-4666-8221-45d0dc9ecb32
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Orders[Order Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Table = calculated
+		mode: import
+		source = ('Orders')
+
+	annotation PBI_Id = 0d774c3152994cc4b0929c6ca01592fb
+

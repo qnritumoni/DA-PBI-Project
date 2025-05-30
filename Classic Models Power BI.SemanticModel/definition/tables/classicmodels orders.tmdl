@@ -1,0 +1,90 @@
+table 'classicmodels orders'
+	lineageTag: cfcdcf33-bbe3-45f7-b046-41686d9ca9a9
+
+	column orderNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b9a7a32d-f7af-47b0-b6db-a2f1c53863cf
+		summarizeBy: none
+		sourceColumn: orderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8b956b5a-f066-470b-b780-96f8ba7293ee
+		summarizeBy: none
+		sourceColumn: orderDate
+
+		variation Variation
+			isDefault
+			relationship: bfe49008-9e15-49b4-885e-77ce868ce4ac
+			defaultHierarchy: LocalDateTable_9b3953e8-5cf9-422e-9a43-ad70083e6f33.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column requiredDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 70fc17e3-fcc3-440f-8bdb-2bf50acc0714
+		summarizeBy: none
+		sourceColumn: requiredDate
+
+		variation Variation
+			isDefault
+			relationship: 735eeb48-a299-4b17-a135-2ce5894f7da7
+			defaultHierarchy: LocalDateTable_ef1aa9ff-a55f-4ca7-8c4a-ad570bab1a6a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column shippedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7aca7e2d-9573-4328-a32b-e7521a63740f
+		summarizeBy: none
+		sourceColumn: shippedDate
+
+		variation Variation
+			isDefault
+			relationship: 48aaa8af-6f49-421e-8358-b4910cfb9837
+			defaultHierarchy: LocalDateTable_c693d6b4-6ac7-421e-980f-416710e73094.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 4aae5830-3ab4-41bc-9011-3ce0057ddbb5
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column comments
+		dataType: string
+		lineageTag: 621504c1-c7e6-47bf-934b-6e0a77b53693
+		summarizeBy: none
+		sourceColumn: comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 65686463-6be4-4d3f-8b82-6394f46f50b0
+		summarizeBy: none
+		sourceColumn: customerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'classicmodels orders' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3306", "classicmodels", [ReturnSingleDatabase=true]),
+				    classicmodels_orders = Source{[Schema="classicmodels",Item="orders"]}[Data]
+				in
+				    classicmodels_orders
+
+	annotation PBI_ResultType = Table
+

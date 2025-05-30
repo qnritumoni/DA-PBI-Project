@@ -1,0 +1,38 @@
+table 'classicmodels productlines'
+	lineageTag: 83aa7d7c-9a40-41dc-a7d0-f6c16e2cd380
+
+	column productLine
+		dataType: string
+		lineageTag: d84f8e4b-95ad-4c64-ad47-a51212644fdc
+		summarizeBy: none
+		sourceColumn: productLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column textDescription
+		dataType: string
+		lineageTag: f6921f87-165e-4b5e-ba96-7bbac95329da
+		summarizeBy: none
+		sourceColumn: textDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column htmlDescription
+		dataType: string
+		lineageTag: caca9236-7d9e-46c7-8646-868488298356
+		summarizeBy: none
+		sourceColumn: htmlDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'classicmodels productlines' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3306", "classicmodels", [ReturnSingleDatabase=true]),
+				    classicmodels_productlines = Source{[Schema="classicmodels",Item="productlines"]}[Data]
+				in
+				    classicmodels_productlines
+
+	annotation PBI_ResultType = Table
+

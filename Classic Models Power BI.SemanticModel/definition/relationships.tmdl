@@ -1,0 +1,69 @@
+relationship bfe49008-9e15-49b4-885e-77ce868ce4ac
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'classicmodels orders'.orderDate
+	toColumn: LocalDateTable_9b3953e8-5cf9-422e-9a43-ad70083e6f33.Date
+
+relationship 735eeb48-a299-4b17-a135-2ce5894f7da7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'classicmodels orders'.requiredDate
+	toColumn: LocalDateTable_ef1aa9ff-a55f-4ca7-8c4a-ad570bab1a6a.Date
+
+relationship 48aaa8af-6f49-421e-8358-b4910cfb9837
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'classicmodels orders'.shippedDate
+	toColumn: LocalDateTable_c693d6b4-6ac7-421e-980f-416710e73094.Date
+
+relationship 97b78826-db85-4591-9571-d4181bdda875
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'classicmodels payments'.paymentDate
+	toColumn: LocalDateTable_5ea72155-eec5-4d9f-850f-94b5ab791527.Date
+
+relationship 64b40692-ff57-4d87-bb22-1a3bf0d9c142
+	fromColumn: 'classicmodels customers'.salesRepEmployeeNumber
+	toColumn: 'classicmodels employees'.employeeNumber
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8e44fdf9-e24e-48bc-b063-53ff9e27f4bd
+	fromColumn: 'classicmodels employees'.officeCode
+	toColumn: 'classicmodels offices'.officeCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 965032d8-61c6-4d7e-a049-92154d2f9471
+	fromColumn: 'classicmodels orderdetails'.orderNumber
+	toColumn: 'classicmodels orders'.orderNumber
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8092ca5a-486d-45cc-a253-e81445c06f14
+	fromColumn: 'classicmodels orderdetails'.productCode
+	toColumn: 'classicmodels products'.productCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0984b460-7bc4-4638-a15b-0cd1c8395d6c
+	fromColumn: 'classicmodels orders'.customerNumber
+	toColumn: 'classicmodels customers'.customerNumber
+
+	annotation PBI_IsFromSource = FS
+
+relationship 722654ce-9871-461d-b384-2c3a8cf25a43
+	fromColumn: 'classicmodels payments'.customerNumber
+	toColumn: 'classicmodels customers'.customerNumber
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6c5d17d7-4a48-4358-ab2d-03d46e16a30c
+	fromColumn: 'classicmodels products'.productLine
+	toColumn: 'classicmodels productlines'.productLine
+
+	annotation PBI_IsFromSource = FS
+
+relationship b4bdbd71-79b8-337c-fd0c-2511c3381602
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'classicmodels orderdetails'.priceEach
+	toColumn: 'classicmodels products'.productDescription
+

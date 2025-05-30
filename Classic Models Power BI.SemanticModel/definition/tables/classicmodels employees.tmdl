@@ -1,0 +1,86 @@
+table 'classicmodels employees'
+	lineageTag: 6a29bb30-7e6f-4df5-8da1-644e655c36c8
+
+	column employeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 29de3564-c25c-45c4-9d8a-8233a76b651d
+		summarizeBy: none
+		sourceColumn: employeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column lastName
+		dataType: string
+		lineageTag: 0e1051a8-f8ec-485d-ab15-e63f06859bbe
+		summarizeBy: none
+		sourceColumn: lastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column firstName
+		dataType: string
+		lineageTag: 984a3283-3e0a-4c90-a6ba-58554341f789
+		summarizeBy: none
+		sourceColumn: firstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column extension
+		dataType: string
+		lineageTag: a5b36098-c831-4a7e-b190-1b973a4e3b4f
+		summarizeBy: none
+		sourceColumn: extension
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: 92a118d0-de96-4f91-8dc6-e89b07506007
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column reportsTo
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bd9298c-046d-4cba-9e2d-d0bc084cf60a
+		summarizeBy: sum
+		sourceColumn: reportsTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column jobTitle
+		dataType: string
+		lineageTag: 261bf502-6ee2-4925-8bfe-f86d07d329a6
+		summarizeBy: none
+		sourceColumn: jobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column officeCode
+		dataType: string
+		lineageTag: 06e0b838-cae2-4c41-88f2-15ccc8ed98b7
+		summarizeBy: none
+		sourceColumn: officeCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Rep Name' = 'classicmodels employees'[firstName]&" "&'classicmodels employees'[lastName]
+		lineageTag: 63494848-0bfa-4a38-a864-24da3911f774
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'classicmodels employees' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3306", "classicmodels", [ReturnSingleDatabase=true]),
+				    classicmodels_employees = Source{[Schema="classicmodels",Item="employees"]}[Data]
+				in
+				    classicmodels_employees
+
+	annotation PBI_ResultType = Table
+

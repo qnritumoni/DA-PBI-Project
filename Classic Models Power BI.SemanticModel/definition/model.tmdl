@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["classicmodels customers","classicmodels employees","classicmodels offices","classicmodels orderdetails","classicmodels orders","classicmodels payments","classicmodels productlines","classicmodels products","Orders","Calculations","Created Order year"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.143.1204.0 (25.05)+23c84aace645781dd62b8a26eb0418c7e6a84b72
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'classicmodels customers'
+ref table 'classicmodels employees'
+ref table 'classicmodels offices'
+ref table 'classicmodels orderdetails'
+ref table 'classicmodels orders'
+ref table DateTableTemplate_284de135-1afa-4d2e-a156-231a5762bbf9
+ref table LocalDateTable_9b3953e8-5cf9-422e-9a43-ad70083e6f33
+ref table LocalDateTable_ef1aa9ff-a55f-4ca7-8c4a-ad570bab1a6a
+ref table LocalDateTable_c693d6b4-6ac7-421e-980f-416710e73094
+ref table 'classicmodels payments'
+ref table LocalDateTable_5ea72155-eec5-4d9f-850f-94b5ab791527
+ref table 'classicmodels productlines'
+ref table 'classicmodels products'
+ref table Orders
+ref table Calculations
+ref table Table
+ref table 'Created Order year'
+
+ref cultureInfo en-US
+

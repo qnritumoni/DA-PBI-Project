@@ -1,0 +1,130 @@
+table 'classicmodels customers'
+	lineageTag: cd3f3c0b-8d74-4881-8461-6d3a481b8052
+
+	column customerNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 57216501-f802-46fa-b702-a35cf51087f2
+		summarizeBy: none
+		sourceColumn: customerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerName
+		dataType: string
+		lineageTag: a70c2841-c3a7-45fc-b286-a2290cfa5af2
+		summarizeBy: none
+		sourceColumn: customerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column contactLastName
+		dataType: string
+		lineageTag: cd3abfb2-c862-4760-91b6-e78081bbe433
+		summarizeBy: none
+		sourceColumn: contactLastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column contactFirstName
+		dataType: string
+		lineageTag: 2d003f96-a9e1-40fb-b329-3e18d6dd639e
+		summarizeBy: none
+		sourceColumn: contactFirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: fc4cf273-56dc-4bc6-a4b9-e59901021811
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column addressLine1
+		dataType: string
+		lineageTag: da114719-3b5c-4ca9-af19-066ca83e7034
+		summarizeBy: none
+		sourceColumn: addressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column addressLine2
+		dataType: string
+		lineageTag: 3196a6f0-2f07-41b8-baaf-aacb2306de5c
+		summarizeBy: none
+		sourceColumn: addressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 2f322eca-8df4-43f8-b20c-be4e00bfd21e
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 457d13c8-f672-460d-b8d4-9fc441464137
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column postalCode
+		dataType: string
+		lineageTag: 7bba8614-6e0b-4f45-a259-b9cb8006c8e3
+		summarizeBy: none
+		sourceColumn: postalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: bd5ca30a-7d1d-413c-a049-8f0eea2e5b19
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column salesRepEmployeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 63d8c404-062e-416d-8a87-93c752530155
+		summarizeBy: none
+		sourceColumn: salesRepEmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditLimit
+		dataType: double
+		lineageTag: 08ab384c-d58b-40c0-b85b-7dfb29932f77
+		summarizeBy: sum
+		sourceColumn: creditLimit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customerLocation
+		dataType: string
+		lineageTag: d36fe223-8df2-4373-9a76-2762f57f87df
+		summarizeBy: none
+		sourceColumn: customerLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'classicmodels customers' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3306", "classicmodels", [ReturnSingleDatabase=true]),
+				    classicmodels_customers = Source{[Schema="classicmodels",Item="customers"]}[Data]
+				in
+				    classicmodels_customers
+
+	annotation PBI_ResultType = Table
+

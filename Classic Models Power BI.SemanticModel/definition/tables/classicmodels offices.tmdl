@@ -1,0 +1,94 @@
+table 'classicmodels offices'
+	lineageTag: f827f099-ab21-4d8d-9048-c38bcbf688e4
+
+	column officeCode
+		dataType: string
+		lineageTag: 1027170a-0af6-4d6e-9ce8-c70cbf223e39
+		summarizeBy: none
+		sourceColumn: officeCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 8bfc68fa-034f-42a8-a941-cf9dda498839
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: b2bcaa9e-c2cc-489d-a0ac-b203e983d935
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column addressLine1
+		dataType: string
+		lineageTag: 62af13e1-f96f-4cac-bddd-491b5f10c240
+		summarizeBy: none
+		sourceColumn: addressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column addressLine2
+		dataType: string
+		lineageTag: 213616a0-6782-48b9-8ecb-6c4a954f07c8
+		summarizeBy: none
+		sourceColumn: addressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 800896d0-f7a4-4a3a-9b19-58f446f60b41
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: fc010936-e08a-4dbb-9614-89a9bb45617e
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column postalCode
+		dataType: string
+		lineageTag: ee0adc1f-dc1f-4b3d-832d-42049fb37f7c
+		summarizeBy: none
+		sourceColumn: postalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column territory
+		dataType: string
+		lineageTag: 9274524f-55c6-4c1a-9dde-35fcaa874d83
+		summarizeBy: none
+		sourceColumn: territory
+
+		annotation SummarizationSetBy = Automatic
+
+	column officeLocation
+		dataType: string
+		lineageTag: ac8fbba8-c3ea-4d8c-912e-52f30d4691d0
+		summarizeBy: none
+		sourceColumn: officeLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'classicmodels offices' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3306", "classicmodels", [ReturnSingleDatabase=true]),
+				    classicmodels_offices = Source{[Schema="classicmodels",Item="offices"]}[Data]
+				in
+				    classicmodels_offices
+
+	annotation PBI_ResultType = Table
+
